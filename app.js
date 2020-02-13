@@ -3,7 +3,7 @@ let gameStarted =true ;
 let level = 0;
 
 let userClickedPattern = [];
-const gamePattern = [];
+let gamePattern = [];
 
 
 
@@ -114,11 +114,17 @@ function checkPattern(level){
         $('body').addClass('game-over');
         setTimeout(function(){
             $('body').removeClass('game-over');
-        },1000) ;
+        },100) ;
         $('#level-title').text('Game Over. Press any key to Continue Again');
-        gameStarted = true;
+        startOver();
     }
 }
 
 
 
+function startOver(){
+    level = 0;
+    gamePattern= [];
+    userClickedPattern = [];
+    gameStarted = true;
+}
